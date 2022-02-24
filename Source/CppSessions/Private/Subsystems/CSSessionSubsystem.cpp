@@ -56,7 +56,7 @@ void UCSSessionSubsystem::OnCreateSessionCompleted(FName SessionName, bool Succe
 
 	OnCreateSessionCompleteEvent.Broadcast(Successful);
 
-	GetWorld()->ServerTravel("/Game/TestLevel?listen");
+	GetWorld()->ServerTravel("/Game/GameLevel?listen");
 }
 
 void UCSSessionSubsystem::UpdateSession()
