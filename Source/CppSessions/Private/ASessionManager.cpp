@@ -85,7 +85,7 @@ void ASessionManager::BeginPlay()
         _userIsHost = true;
         sessionSubsystem->CreateSession(5, true);
       });
-  sessionSubsystem->FindSessions(1, true);
+  sessionSubsystem->FindSessions(5, true);
 
 }
 
