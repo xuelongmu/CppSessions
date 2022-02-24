@@ -89,28 +89,28 @@ void ASessionManager::BeginPlay()
 
 }
 
-void ASessionManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
-	if (!_userInSession) {
-		return;
-	}
-
-	auto sessionSubsystem =
-		GetWorld()->GetGameInstance()->GetSubsystem<UCSSessionSubsystem>();
-	if (_userIsHost) {
-		// If you are the hosting player, destroy the session
-		UE_LOG(LogTemp, Display, TEXT("Destroying session..."));
-		sessionSubsystem->DestroySession();
-	}
-
-	// Otherwise: ?
-
-	Super::EndPlay(EndPlayReason);
-}
+// void ASessionManager::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+// 	if (!_userInSession) {
+// 		return;
+// 	}
+//
+// 	auto sessionSubsystem =
+// 		GetWorld()->GetGameInstance()->GetSubsystem<UCSSessionSubsystem>();
+// 	if (_userIsHost) {
+// 		// If you are the hosting player, destroy the session
+// 		UE_LOG(LogTemp, Display, TEXT("Destroying session..."));
+// 		sessionSubsystem->DestroySession();
+// 	}
+//
+// 	// Otherwise: ?
+//
+// 	Super::EndPlay(EndPlayReason);
+// }
 
 
 void ASessionManager::_handleCreateSessionComplete(bool Successful) {
 	if (!Successful) {
-		UE_LOG(LogTemp, Display, TEXT("Unkown error while creating session."));
+		UE_LOG(LogTemp, Display, TEXT("Unknown error while creating session."));
 		return;
 	}
 
