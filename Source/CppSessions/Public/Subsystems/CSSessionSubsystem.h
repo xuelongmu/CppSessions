@@ -30,7 +30,8 @@ public:
 	void DestroySession();
 	void FindSessions(int32 MaxSearchResults, bool IsLANQuery);
 	void JoinGameSession(const FOnlineSessionSearchResult& SessionResult);
-	
+	bool TryTravelToCurrentSession();
+
 	FCSOnCreateSessionComplete OnCreateSessionCompleteEvent;
 	FCSOnUpdateSessionComplete OnUpdateSessionCompleteEvent;
 	FCSOnStartSessionComplete OnStartSessionCompleteEvent;
@@ -47,7 +48,6 @@ protected:
 	void OnDestroySessionCompleted(FName SessionName, bool Successful);
 	void OnFindSessionsCompleted(bool Successful);
 	void OnJoinSessionCompleted(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
-	bool TryTravelToCurrentSession();
 
 private:
 	FOnCreateSessionCompleteDelegate CreateSessionCompleteDelegate;
