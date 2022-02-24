@@ -37,7 +37,6 @@ void UCSSessionSubsystem::CreateSession(int32 NumPublicConnections, bool IsLANMa
 	LastSessionSettings->Set(SETTING_MAPNAME, FString("Your Level Name"), EOnlineDataAdvertisementType::ViaOnlineService);
 
 	CreateSessionCompleteDelegateHandle = sessionInterface->AddOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegate);
-
 	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
 	if (!sessionInterface->CreateSession(*localPlayer->GetPreferredUniqueNetId(), NAME_GameSession, *LastSessionSettings))
 	{
@@ -56,6 +55,8 @@ void UCSSessionSubsystem::OnCreateSessionCompleted(FName SessionName, bool Succe
 	}
 
 	OnCreateSessionCompleteEvent.Broadcast(Successful);
+
+	GetWorld()->ServerTravel("/Game/TestLevel?listen");
 }
 
 void UCSSessionSubsystem::UpdateSession()
